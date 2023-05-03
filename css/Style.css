@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  max-height: 100vh;
+  font-family:'Sedgwick Ave Display', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent; }
+
+header, section, div, p, span, a, ul, li, form, input, textarea, img, button, img, h1, h2, h3, h4, h5, h6, figure, figcaption {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, h6, p {
+  color: #000000; }
+
+a {
+  color: #333;
+  text-decoration: none; }
+
+ul {
+  list-style-type: none; }
+
+button, button:hover, button:active, input, textarea {
+  outline: none;
+  border: none;
+  background-color: transparent; }
+
+button {
+  color: #FFFFFF;
+  cursor: pointer; }
+
+input, textarea:focus {
+  border-color: #333; }
+
+textarea {
+  resize: none; }
+
+.fullscreen {
+  width: 100%;
+  height: 100%; }
+
+.viewFlex {
+  display: flex !important; }
+
+.container {
+  margin: 0 auto; }
+
+.grid-12-auto {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+  margin: 0 auto;
+  padding: 0 60px; }
+
+.grid-6-auto {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 0 30px;
+  margin: 0 auto; }
+
+.noneSelected {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none; }
+
+.mt-10 {
+  margin-top: 10px; }
+
+.mb {
+  margin-bottom: 1rem; }
+
+.mb2 {
+  margin-bottom: 2rem; }
+
+.none {
+  display: none; }
+
+.text-center {
+  text-align: center; }
+
+.page-enter-active, .page-leave-active {
+  transition: opacity .8ms; }
+
+.page-enter, .page-leave-active {
+  opacity: 0; }
+
+section	{
+	width: 100vw;
+	height: 100vh;
+	background: url("../img/bj.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+section:before {
+	content: '';
+	position: absolute;
+	display: block;
+	background-image: url('../img/dg.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+/*	background: linear-gradient(293.41deg, rgba(0, 0, 0, 0.2) 59.56%, rgba(255, 244, 244, 0.034) 80.21%);*/
+	width: 100%;
+	height: 100%;
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	padding: 38px 30px 38px 30px;
+}
+
+.content-title {
+	font-size: 64px;
+	font-weight: 400px;
+	margin-bottom: 14px;
+}
+
+.mb18 {
+	margin-bottom: 18px;
+}
+
+.local {
+	position: relative;
+	bottom: 117px;
+	left: 70px;
+}
+.field {
+	background-color: rgba(210, 191, 163, 0.75);
+	padding: 14px;
+	border-radius: 10px;
+	color: #FFFFFF;
+	font-size: 20px;
+	font-weight: 400px;
+}
+
+.field::placeholder {color: #E3E3E3;}
+.btn-quad {
+	background-color: rgba(128, 128, 128, 0.75);
+	padding: 12px 19px 12px 19px;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: 400px;
+}
+
+.btn-quad:hover {
+      background-color:#D2BFA3;
+      transition: 0.7s;
+  }
+
+.mb37 {
+	margin-bottom: 37px;
+}
+
+input, button {
+	display: block;
+	font-family: 'Sedgwick Ave Display', sans-serif;
+}
+
+.content-mechanics {
+	display: flex;
+}
+
+.content-mechanics-fields {
+}
+
+.btn-rectandle {
+	width: 100%;
+	background-color: rgba(128, 128, 128, 0.75);
+	padding: 12px 77px 12px 77px;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: 400px;
+}
+
+.btn-rectandle:hover {
+      background-color:#D2BFA3;
+      transition: 0.7s;
+  }
+
+.content-mechanics-buttons {
+	margin-left: 71px;
+}
+
+.button {
+	display: flex;
+	align-self: flex-end;
+    padding: 42px 31px 43px 30px;
+    background-color: rgba(128, 128, 128, 0.75);
+    border-radius: 50px;
+}
+
+.button:hover {
+      background-color:#D2BFA3;
+      transition: 0.7s;
+  }
+
+  .answer {
+  	position: absolute;
+  	weight: 100%;
+  	height: 88%;
+  	display: flex;
+  	justify-content: center;
+  	color: #fff;
+  	align-items: center;
+  	top: center;
+  	left: 50%;
+  	font-size: 64px;
+	font-weight: 400px;
+  }
+
+
+.answer-bg {
+	position: relative;
+	width: 200px;
+	height: 100px;
+	background: rgba(107, 107, 107, 0.67);
+	filter: blur(25.5px);
+}
+  .answer-text {
+  	position: absolute;
+  }
+
+  .active-btn {
+  	  background-color:#D2BFA3;
+      transition: 0.7s;
+  }
