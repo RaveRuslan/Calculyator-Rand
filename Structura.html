@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Raveman</title> <!-- Имя страницы -->
+	<link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display:wght@800&display=swap" rel="stylesheet"><!-- Подключение шрифтов -->
+    <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- Подключение стилей (CSS) -->
+</head>
+<body> <!-- Началбная основа (Тело, Скелет.) -->
+
+<section> <!-- Разделение страницы на логические секции -->
+	<div class="wrapper"> <!-- Начало секции -->
+		<div class="content"> <!-- Контент -->
+			<h1 class="content-title">Calculator and Random</h1> <!-- Заголовок -->
+			<div class="content-mechanics"> <!-- Поля ввода и т.п. -->
+				<div class="content-mechanics-fields">
+					<input  id="num1" class="mb18 field" tipe="text" number="usernumber" placeholder="Enter the first number" size="20"/> <!-- Поле ввода -->
+					 <input id="num2" class="mb37 field" tipe="text" number="usernumber" placeholder="Enter the second number" size="20"/>
+					 <button class="mb18 btn-rectandle"type="submit" id="ResultBtn">Result</button> <!-- Кнопка расчета -->
+					 <button class="btn-rectandle"type="submit" id="RandomBtn">Random</button>
+				</div>
+				<div class="content-mechanics-buttons">
+					<button class="mb18 btn-quad" type="submit" >+</button> <!-- Кнопка действий -->
+			        <button class="btn-quad" type="submit">-</button>
+					<button class="mb18 local btn-quad" type="submit" >*</button> <!-- Кнопка действий -->
+			        <button class="local btn-quad" type="submit">/</button>	
+				</div>
+			</div>
+		</div>
+		<button class="button" type="submit">Delete</button> <!-- Кнопка удаления -->
+		<div class="answer">
+			<div class="answer-bg"></div> <!-- Фон результата -->
+			<span class="answer-text" id="Result"></span> <!-- Текст результата -->
+		</div>
+	</div>
+</section>
+
+	</body>
+	<script>
+		// Переменные -----------------------------------------------------------------------------------------------------
+		let action 
+		let result;
+
+		// Функции(действия) -----------------------------------------------------------------------------------------------
+		const selectedAction = (data) => { // Выбрать математическое действие
+			action = data
+		}
+		function getRandomIntInclusive() {
+			const min = Number(document.querySelector("#num1").value);
+	    	const max = Number(document.querySelector("#num2").value);
+  			// Генерация рандомных чисел
+			result = Math.random() * (max -min) + min
+			result < 0.5 ? result = 0 : result = Math.ceil(result)
+		}
+		const generateResult = () => { // Генерация результата
+		const num1 = Number(document.querySelector("#num1").value);
+	    const num2 = Number(document.querySelector("#num2").value);
+
+	    switch (action) {
+	      case '+':
+	        result = num1 + num2;
+	        break;
+	      case '-':
+	        result = num1 - num2;
+	        break;
+			case '*':
+	        result = num1 * num2;
+	        break;
+	      case '/':
+	        result = num1 / num2;
+	        break;
+		}
+      }
+
+       // отправляем результат на страницу
+      const sendResultPage = () => {
+			document.querySelector("#Result").textContent = result;
+      }
+
+		// Удаление активности кнопок операций
+		const disableBtn = () => {
+			document.querySelectorAll(".btn-quad").forEach( btn => {
+				btn.classList.remove("active-btn")
+			})
+		}
+
+		const deletingData = () => { // Удалить значения текстовых полей
+			document.querySelectorAll(".field").forEach(elem => {
+				elem.value = ""	// Удаление текстового значения текстовых полей "Мандарины"
+			}) 
+			document.querySelector(".answer-text").textContent = ""
+		}
+
+		// Нажатие кнопок ---------------------------------------------------------------------------------------------------
+		document.querySelector("#ResultBtn").addEventListener("click", ()  => {
+			generateResult()
+			sendResultPage() // Отправка результата на страницу
+			}
+		)
+		document.querySelectorAll(".btn-quad").forEach( btn => {
+			btn.addEventListener("click", () => {
+				disableBtn()
+				selectedAction(btn.textContent) // Выбор оператора
+				btn.classList.add("active-btn")
+			})
+		})
+
+		document.querySelector("#RandomBtn").addEventListener("click", () => {
+			getRandomIntInclusive(3, 10)
+			sendResultPage()
+		})
+		// document.querySelector(".button").onclick = deletingData
+		document.querySelector(".button").addEventListener("click", () => {
+			disableBtn() // Удаление активности кнопок
+			deletingData() // Удаление значений полей ввода
+		}) // Тоже самое что строка выше
+
+
+      // var op;
+	// 	function func() {
+	// 		var result;
+	// 		var num1 = Number(document.getElementById("num1").value);
+	  //   var num2 = Number(document.getElementById("num2").value);
+	  //   switch (op) {
+	  //     case '+':
+	  //       result = num1 + num2;
+	  //       break;
+	  //     case '-':
+	  //       result = num1 - num2;
+	  //       break;
+	// 	}
+	// 	 document.getElementById("Result").textContent = result;
+      // }
+	</script>
+</html>
